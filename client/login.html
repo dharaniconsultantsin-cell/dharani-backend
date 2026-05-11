@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Dharani Consultants Login</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins',sans-serif;
+    }
+
+    body{
+      min-height:100vh;
+      overflow:hidden;
+      background:#050505;
+      color:white;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+    }
+
+    /* VIDEO BACKGROUND */
+
+    
+
+    .overlay{
+      position:absolute;
+      inset:0;
+      background:
+      linear-gradient(to right, rgba(0,0,0,.75), rgba(0,0,0,.45)),
+      radial-gradient(circle at top right, rgba(255,215,0,.18), transparent 35%);
+      z-index:-2;
+    }
+
+    /* FLOATING PARTICLES */
+
+    .particles span{
+      position:absolute;
+      width:4px;
+      height:4px;
+      background:gold;
+      border-radius:50%;
+      animation:float 10s linear infinite;
+      opacity:.5;
+    }
+
+    @keyframes float{
+      0%{
+        transform:translateY(100vh) scale(0);
+      }
+      100%{
+        transform:translateY(-10vh) scale(1);
+      }
+    }
+
+    /* MAIN CONTAINER */
+
+    .container{
+      width:100%;
+      max-width:1350px;
+      height:100vh;
+      border-radius:0;
+      overflow:hidden;
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      backdrop-filter:blur(20px);
+      background:rgba(255,255,255,.03);
+      border:1px solid rgba(255,215,0,.15);
+      box-shadow:
+      0 0 40px rgba(255,215,0,.08),
+      inset 0 0 20px rgba(255,255,255,.03);
+    }
+
+    /* LEFT */
+
+    .left{
+      position:relative;
+      padding:70px;
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      background:
+      linear-gradient(to bottom, rgba(0,0,0,.25), rgba(0,0,0,.75));
+    }
+
+    .left::before{
+      content:'';
+      position:absolute;
+      inset:0;
+      background:
+      radial-gradient(circle at top left, rgba(255,215,0,.15), transparent 30%);
+    }
+
+    .mini{
+      color:#f5c542;
+      letter-spacing:3px;
+      margin-bottom:15px;
+      font-size:14px;
+    }
+
+    .left h1{
+      font-size:72px;
+      line-height:1;
+      margin-bottom:25px;
+      font-weight:700;
+    }
+
+    .left h1 span{
+      color:#f5c542;
+      text-shadow:0 0 20px rgba(255,215,0,.4);
+    }
+
+    .left p{
+      color:#ddd;
+      font-size:18px;
+      width:80%;
+      line-height:1.8;
+    }
+
+    .secure-box{
+      margin-top:60px;
+      display:flex;
+      align-items:center;
+      gap:18px;
+      padding:20px;
+      width:360px;
+      border-radius:20px;
+      background:rgba(255,255,255,.04);
+      border:1px solid rgba(255,215,0,.1);
+      backdrop-filter:blur(10px);
+    }
+
+    .secure-icon{
+      width:60px;
+      height:60px;
+      border-radius:18px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:rgba(255,215,0,.1);
+      color:#f5c542;
+      font-size:28px;
+      box-shadow:0 0 20px rgba(255,215,0,.25);
+    }
+
+    /* RIGHT */
+
+    .right{
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:40px;
+      position:relative;
+    }
+
+    .login-box{
+      width:100%;
+      max-width:520px;
+      padding:50px;
+      border-radius:35px;
+      background:rgba(0,0,0,.55);
+      backdrop-filter:blur(25px);
+      border:1px solid rgba(255,215,0,.18);
+      position:relative;
+      overflow:hidden;
+      animation:fadeUp 1.2s ease;
+    }
+
+    @keyframes fadeUp{
+      from{
+        opacity:0;
+        transform:translateY(50px);
+      }
+      to{
+        opacity:1;
+        transform:translateY(0);
+      }
+    }
+
+    .login-box::before{
+      content:'';
+      position:absolute;
+      width:300px;
+      height:300px;
+      background:radial-gradient(circle, rgba(255,215,0,.18), transparent 70%);
+      top:-150px;
+      right:-150px;
+      filter:blur(20px);
+    }
+
+    .logo{
+      width:220px;
+      display:block;
+      margin:auto;
+      margin-bottom:25px;
+      filter:drop-shadow(0 0 25px rgba(255,215,0,.35));
+      animation:glow 4s infinite alternate;
+    }
+
+    @keyframes glow{
+      from{
+        transform:scale(1);
+      }
+      to{
+        transform:scale(1.03);
+      }
+    }
+
+    .title{
+      text-align:center;
+      font-size:34px;
+      font-weight:600;
+      color:#f5c542;
+      margin-bottom:35px;
+      letter-spacing:2px;
+    }
+
+    .input-group{
+      margin-bottom:22px;
+    }
+
+    .input-group input{
+      width:100%;
+      padding:18px 22px;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.08);
+      background:rgba(255,255,255,.04);
+      color:white;
+      font-size:16px;
+      outline:none;
+      transition:.35s;
+    }
+
+    .input-group input:focus{
+      border-color:#f5c542;
+      box-shadow:0 0 20px rgba(255,215,0,.15);
+      transform:translateY(-2px);
+    }
+
+    .login-btn{
+      width:100%;
+      padding:18px;
+      border:none;
+      border-radius:18px;
+      background:linear-gradient(135deg,#f5c542,#ffdf75);
+      color:black;
+      font-size:18px;
+      font-weight:700;
+      cursor:pointer;
+      transition:.35s;
+      margin-top:15px;
+      box-shadow:0 0 25px rgba(255,215,0,.25);
+    }
+
+    .login-btn:hover{
+      transform:translateY(-4px) scale(1.01);
+      box-shadow:0 0 35px rgba(255,215,0,.45);
+    }
+
+    .divider{
+      text-align:center;
+      margin:28px 0;
+      color:#999;
+      position:relative;
+    }
+
+    .divider::before,
+    .divider::after{
+      content:'';
+      position:absolute;
+      width:35%;
+      height:1px;
+      background:rgba(255,255,255,.12);
+      top:50%;
+    }
+
+    .divider::before{
+      left:0;
+    }
+
+    .divider::after{
+      right:0;
+    }
+
+    .google-btn{
+      width:100%;
+      padding:16px;
+      border:none;
+      border-radius:16px;
+      background:white;
+      color:black;
+      font-size:17px;
+      font-weight:600;
+      cursor:pointer;
+      transition:.35s;
+    }
+
+    .google-btn:hover{
+      transform:translateY(-3px);
+    }
+
+    .footer{
+      position:absolute;
+      bottom:18px;
+      width:100%;
+      text-align:center;
+      color:#bbb;
+      font-size:13px;
+      letter-spacing:1px;
+    }
+
+    /* MOBILE */
+
+    @media(max-width:1000px){
+
+      body{
+        overflow:auto;
+      }
+
+      .container{
+        grid-template-columns:1fr;
+        height:auto;
+        margin:30px 0;
+      }
+
+      .left{
+        padding:40px;
+      }
+
+      .left h1{
+        font-size:50px;
+      }
+
+      .left p{
+        width:100%;
+      }
+
+      .secure-box{
+        width:100%;
+      }
+
+      .right{
+        padding:25px;
+      }
+
+      .login-box{
+        padding:35px;
+      }
+
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!--BACKGROUND IMAGE-->
+<div class="bg-image"></div>
+
+  <div class="overlay"></div>
+
+  <!-- PARTICLES -->
+
+  <div class="particles">
+    <span style="left:10%; animation-duration:12s;"></span>
+    <span style="left:25%; animation-duration:9s;"></span>
+    <span style="left:40%; animation-duration:11s;"></span>
+    <span style="left:55%; animation-duration:14s;"></span>
+    <span style="left:70%; animation-duration:8s;"></span>
+    <span style="left:85%; animation-duration:10s;"></span>
+  </div>
+
+  <div class="container">
+
+    <!-- LEFT -->
+
+    <div class="left">
+
+      <div class="mini">
+        WELCOME BACK
+      </div>
+
+      <h1>
+        Access Your <br>
+        <span>Dashboard</span>
+      </h1>
+
+      <p>
+        Manage projects, monitor uploads, update portfolio,
+        handle client forms and grow your business with a premium admin experience.
+      </p>
+
+      <div class="secure-box">
+
+        <div class="secure-icon">
+          🔒
+        </div>
+
+        <div>
+          <h3 style="color:#f5c542;">Secure & Protected</h3>
+          <p style="font-size:14px;color:#bbb;">
+            Enterprise-grade protected admin access.
+          </p>
+        </div>
+
+      </div>
+
+    </div>
+
+    <!-- RIGHT -->
+
+    <div class="right">
+
+      <div class="login-box">
+
+        <img src="assets/logo.png" class="logo">
+
+        <div class="title">
+          ADMIN LOGIN
+        </div>
+
+        <form id="loginForm">
+
+          <div class="input-group">
+            <input type="email" placeholder="Email Address" required>
+          </div>
+
+          <div class="input-group">
+            <input type="password" placeholder="Password" required>
+          </div>
+
+          <button class="login-btn">
+            LOGIN
+          </button>
+
+        </form>
+
+        <div class="divider">
+          OR CONTINUE WITH
+        </div>
+
+        <button class="google-btn">
+          Continue with Google
+        </button>
+
+      </div>
+
+    </div>
+
+  </div>
+
+  <div class="footer">
+    © 2026 Dharani Consultants — Premium Admin Portal
+  </div>
+
+  <script>
+
+    // SIMPLE LOGIN
+
+    document
+    .getElementById("loginForm")
+    .addEventListener("submit", function(e){
+
+      e.preventDefault();
+
+      localStorage.setItem("adminLoggedIn", "true");
+
+      window.location.href = "dashboard.html";
+
+    });
+
+  </script>
+
+</body>
+</html>
