@@ -3,7 +3,7 @@ require("./models/Form");
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
-require("./server/routes/forms");
+require("./routes/forms");
 const app = express();
 
 app.use(cors());
