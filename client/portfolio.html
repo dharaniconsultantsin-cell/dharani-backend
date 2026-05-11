@@ -257,7 +257,7 @@ async function loadPortfolio(){
   try{
 
     const res = await fetch(
-      "http://localhost:5000/api/projects/all"
+      "https://dharani-backend-204h.onrender.com/api/projects/all"
     );
 
     const data = await res.json();
@@ -276,7 +276,7 @@ async function loadPortfolio(){
         <div class="portfolio-card">
 
           <img
-          src="http://localhost:5000/uploads/${project.image}">
+          src="https://dharani-backend-204h.onrender.com/uploads/${project.image}">
 
           <div class="portfolio-content">
 
